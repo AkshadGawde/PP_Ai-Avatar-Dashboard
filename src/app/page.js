@@ -8,14 +8,25 @@ import Plus from "lucide-react/dist/esm/icons/plus";
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good Morning";
+    if (hour < 18) return "Good Afternoon";
+    return "Good Evening";
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
 
       <main className="max-w-7xl mx-auto py-8 px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+        <p className="mt-2 text-2xl font-bold text-center">
+          {getGreeting()}, Welcome to DCVerse
+        </p>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 ">
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">Your Avatars</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mt-10">
+              Your Avatars
+            </h2>
             <p className="text-gray-600">
               Manage and customize your AI personas
             </p>
